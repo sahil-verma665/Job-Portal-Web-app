@@ -36,13 +36,11 @@ const HeroSection = () => {
             <h1>Find a job that suits</h1>
             <h1>your interests and skills</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              voluptate repellat modi quidem aliquid eaque ducimus ipsa et,
-              facere mollitia!
+              Discover a seamless way to connect with top talent. Our platform is designed to simplify recruitment, save time, and help you find the right candidates faster. Post jobs, manage applications, and hire smarter — all in one place.
             </p>
           </div>
           <div className="image">
-            <img src="/heroS.jpg" alt="hero" />
+            <img src="/heroimg.jpg" alt="hero" />
           </div>
         </div>
         <div className="details">

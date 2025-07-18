@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/login",
+        "http://localhost:4000/api/v1/users/login",
         { email, password, role },
         {
           headers: {
@@ -92,7 +92,7 @@ const Login = () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/login.png" alt="login" />
+          <img src="/loginimg.jpg" alt="login" />
         </div>
       </section>
     </>

@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/v1/user/logout",
+        "http://localhost:4000/api/v1/users/logout",
         {
           withCredentials: true,
         }
@@ -22,7 +22,8 @@ const Navbar = () => {
       setIsAuthorized(false);
       navigateTo("/login");
     } catch (error) {
-      toast.error(error.response.data.message), setIsAuthorized(true);
+      toast.error(error.response.data.message);
+      setIsAuthorized(true);
     }
   };
 
@@ -44,7 +45,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/applications/me"} onClick={() => setShow(false)}>
+            <Link to={"/application/me"} onClick={() => setShow(false)}>
               {user && user.role === "Employer"
                 ? "APPLICANT'S APPLICATIONS"
                 : "MY APPLICATIONS"}
@@ -66,7 +67,6 @@ const Navbar = () => {
           ) : (
             <></>
           )}
-
           <button onClick={handleLogout}>LOGOUT</button>
         </ul>
         <div className="hamburger">
@@ -77,4 +77,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;

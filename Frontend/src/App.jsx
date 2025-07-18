@@ -20,11 +20,11 @@ import { Toaster } from 'react-hot-toast';
  const App = () => {
 
      const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
-  useEffect(() => {
+    useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/getuser",
+          "http://localhost:4000/api/v1/users/getuser",
           {
             withCredentials: true,
           }
@@ -32,15 +32,15 @@ import { Toaster } from 'react-hot-toast';
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch(error) {
+          console.error("Fetch user failed:", error);
         setIsAuthorized(false);
       }
     };
     fetchUser();
-  },[isAuthorized]);
+  },[setUser ,isAuthorized]);
 
 
-  
-  return (
+ return (
     <>
       <Router>
         <Navbar/>
@@ -63,4 +63,4 @@ import { Toaster } from 'react-hot-toast';
   )
 };
 
-export default App
+export default App;

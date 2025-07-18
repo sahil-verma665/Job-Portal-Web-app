@@ -1,12 +1,14 @@
-import { createContext, StrictMode, useState } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { createContext, StrictMode, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
 
-export const Context=createContext({isAuthorized:false});
+// Define Context
+export const Context = createContext({ isAuthorized: false });
 
+// eslint-disable-next-line react-refresh/only-export-components
 const AppWrapper = () => {
-  const [isAuthorized,setIsAuthorized] = useState(false);
-  const [user,setUser] = useState({});
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [user, setUser] = useState({});
 
   return (
     <Context.Provider
@@ -22,8 +24,10 @@ const AppWrapper = () => {
   );
 };
 
+// Render
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppWrapper/>
-  </StrictMode>,
-)
+    <AppWrapper />
+  </StrictMode>
+);
+

@@ -3,7 +3,7 @@ import { Context } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import ResumeModal from "./ResumeModel";
+import ResumeModal from "./ResumeModal";
 
 const MyApplications = () => {
   const { user } = useContext(Context);

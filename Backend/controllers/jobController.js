@@ -77,7 +77,7 @@ export const getMyJobs = catchAsyncError(async (req, res, next) => {
   const myJobs = await Job.find({ postedBy: req.user._id });
   res.status(200).json({
     success: true,
-    myjobs,
+    myJobs,
   });
 });
 

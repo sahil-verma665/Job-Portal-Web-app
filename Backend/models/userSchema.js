@@ -1,7 +1,7 @@
-import mongoose from  "mongoose";
-import validator from 'validator';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import mongoose from "mongoose";
+import validator from "validator";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -13,6 +13,8 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Please enter your Email!"],
+    unique: true, // Ensure email is unique
+    lowercase: true, // Convert email to lowercase
     validate: [validator.isEmail, "Please provide a valid Email!"],
   },
   phone: {
@@ -37,23 +39,24 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-//HASHING THE PASSWORD
+// Hashing the password
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
-    next();
+    return next();
   }
   this.password = await bcrypt.hash(this.password, 10);
+  next();
 });
 
-//COMPARING THE USER PASSWORD ENTERED BY USER WITH THE USER SAVED PASSWORD
+// Comparing password
 userSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-//GENERATING A JWT TOKEN WHEN A USER REGISTERS OR LOGINS, IT DEPENDS ON OUR CODE THAT WHEN DO WE NEED TO GENERATE THE JWT TOKEN WHEN THE USER LOGIN OR REGISTER OR FOR BOTH. 
+// Generating JWT token
 userSchema.methods.getJWTToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: process.env.JWT_EXPIRES,
+    expiresIn: process.env.JWT_EXPIRE,
   });
 };
 

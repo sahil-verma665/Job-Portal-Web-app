@@ -1,29 +1,29 @@
 import React from "react";
-import { FaMicrosoft, FaApple } from "react-icons/fa";
-import { SiTesla } from "react-icons/si";
+import { FaGoogle, FaAmazon } from "react-icons/fa";
+import { SiFlipkart } from "react-icons/si";
 
 const PopularCompanies = () => {
   const companies = [
     {
       id: 1,
-      title: "Microsoft",
-      location: "Street 10 Karachi, Pakistan",
-      openPositions: 10,
-      icon: <FaMicrosoft />,
+      title: "Amazon",
+      location: "Street 10 Bangalore, India",
+      openPositions: 50,
+      icon: <FaAmazon />,
     },
     {
       id: 2,
-      title: "Tesla",
-      location: "Street 10 Karachi, Pakistan",
-      openPositions: 5,
-      icon: <SiTesla />,
+      title: "Google",
+      location: "Street 20 gurugram, India",
+      openPositions: 10,
+      icon: <FaGoogle />,
     },
     {
       id: 3,
-      title: "Apple",
-      location: "Street 10 Karachi, Pakistan",
-      openPositions: 20,
-      icon: <FaApple />,
+      title: "Flipkart",
+      location: "Street 50 Pune, India",
+      openPositions: 30,
+      icon: <SiFlipkart />,
     },
   ];
   return (

@@ -17,7 +17,7 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/job/getmyjobs",
+          "http://localhost:4000/api/v1/job/getMyJobs",
           { withCredentials: true }
         );
         setMyJobs(data.myjobs);

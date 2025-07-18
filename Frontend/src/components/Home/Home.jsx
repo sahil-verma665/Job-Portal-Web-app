@@ -9,10 +9,11 @@ import PopularCompanies from "./PopularCompanies";
 
 const Home = () => {
 
-  const {isAuthorized}=useContext(Context);
+  const { isAuthorized } = useContext(Context);
   if (!isAuthorized) {
-    return <Navigate to={'/login'}/>
-  }
+  return <Navigate to={'/login'} />
+}
+
   return (
      <>
       <section className="homePage page">
@@ -25,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;

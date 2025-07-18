@@ -16,13 +16,13 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
-  const { isAuthorized, setIsAuthorized} = useContext(Context);
+  const { isAuthorized, setIsAuthorized,} = useContext(Context);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/register",
+        "http://localhost:4000/api/v1/users/register",
         { name, phone, email, role, password },
         {
           headers: {
@@ -44,7 +44,7 @@ const Register = () => {
   };
 
   if(isAuthorized){
-    return <Navigate to={'/'}/>
+    return <Navigate to={'/'} />
   }
 
 
@@ -123,7 +123,7 @@ const Register = () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/register.png" alt="login" />
+          <img src="/loginimg.jpg" alt="login" />
         </div>
       </section>
     </>

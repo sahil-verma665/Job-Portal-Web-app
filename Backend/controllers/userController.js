@@ -6,11 +6,11 @@ import { sendToken } from "../utils/jwtToken.js";
 export const register = catchAsyncError(async (req, res, next) => {
   const { name, email, phone, password, role } = req.body;
   if (!name || !email || !phone || !password || !role) {
-    return next(new ErrorHandler("Please fill full form!"));
+    return next(new ErrorHandler("Please fill full form!",400));
   }
   const isEmail = await User.findOne({ email });
   if (isEmail) {
-    return next(new ErrorHandler("Email already registered!"));
+    return next(new ErrorHandler("Email already registered!" , 409));
   }
   const user = await User.create({
     name,
