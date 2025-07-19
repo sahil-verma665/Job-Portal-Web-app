@@ -17,12 +17,12 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/job/getMyJobs",
+          "http://localhost:4000/api/v1/job/getmyjobs",
           { withCredentials: true }
         );
         setMyJobs(data.myjobs);
       } catch (error) {
-        toast.error(error.response.data.message);
+        toast.error(error.response?.data?.message || "Failed to fetch jobs");
         setMyJobs([]);
       }
     };

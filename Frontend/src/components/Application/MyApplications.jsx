@@ -10,7 +10,6 @@ const MyApplications = () => {
   const [applications, setApplications] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [resumeImageUrl, setResumeImageUrl] = useState("");
-
   const { isAuthorized } = useContext(Context);
   const navigateTo = useNavigate();
 
@@ -44,7 +43,7 @@ const MyApplications = () => {
 
   const deleteApplication = (id) => {
     try {
-      axios
+    axios
         .delete(`http://localhost:4000/api/v1/application/delete/${id}`, {
           withCredentials: true,
         })
